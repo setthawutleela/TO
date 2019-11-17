@@ -4,6 +4,3 @@
 // exports.helloWorld = functions.https.onRequest((request, response) => {
 //  response.send("Hello from Firebase!");
 // });
-var firebase = require('firebase/app');
-require('firebase/auth');
-require('firebase/database');
