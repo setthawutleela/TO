@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <h1>Welcome to TO</h1><br>
+    <button class="btn btn-outline-secondary" type="button" id="resetBtn">Reset Database</button><br><br>
+    <h4>Query from database</h4><br>
+    <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter Username.." aria-label="Example text with button addon" aria-describedby="button-addon1" id='searchInput'>
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button" id="getAllBtn">Get All Users</button>
+          <button class="btn btn-outline-secondary" type="button" id="getOneBtn">Search</button>
+        </div>
+    </div>
+
+    <hr>
+    <h4>Insert into databasse</h4><br>
+    <input type="text" class="form-control" placeholder="Enter Username.." aria-label="Example text with button addon" aria-describedby="button-addon1" id='nameInsert'>
+    <input type="text" class="form-control" placeholder="Enter Your Project.." aria-label="Example text with button addon" aria-describedby="button-addon1" id='projectInsert'>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button" id="insertBtn">Insert</button>
+        </div>
+    </div>
+
+    <hr>
+    <h4>Delete data in database</h4><br>
+    <input type="text" class="form-control" placeholder="Enter Username.." aria-label="Example text with button addon" aria-describedby="button-addon1" id='deleteInput'>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" type="button" id="deleteBtn">Delete</button>
+        </div>
+    </div>
+
+    <hr>
+    <h4>Result</h4><br>
+    <div id="status"></div>
+
+    </div>
+
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+    authDomain: "swap-inc-to-da352.firebaseapp.com",
+    databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+    projectId: "swap-inc-to-da352",
+    storageBucket: "swap-inc-to-da352.appspot.com",
+    messagingSenderId: "909262246523",
+    appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+    measurementId: "G-PC959CD68Y"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script type='text/javascript'>
+
+    $(document).ready(() => {
+        console.log('HELLO BROWSER')
+        const database = firebase.database()
+
+        database.ref('users/').on('value', (snapshot) => {
+            const allUsers = snapshot.val()
+            console.log('users/changed: ', allUsers)
+            if (allUsers) {
+                $('#status').html(''); // clear the HTML
+                $('#status').append('List of users: ')
+                Object.keys(allUsers).forEach((name) => {
+                    $('#status').append('<li>' + name + ' ' + allUsers[name].project + '</li>')
+                })
+            }
+        })
+
+        $('#resetBtn').click(() => {
+            console.log('Resetting the database')
+            database.ref('users/').remove()
+            database.ref('users/willy').set({
+                                                project: ['p001',
+                                                        'p002'],
+                                                status: 'NaHee'
+                                            })
+            database.ref('users/pleum').set({
+                                                project: ['p001'],
+                                                status: 'NaRak'
+                                            })
+        })
+
+        $('#deleteBtn').click(() => {
+            const name = $('#deleteInput').val().toLowerCase();
+            if(database.ref('users/' + name).remove()){
+                // $('#status').empty()            //Clear the old input out
+                // $('#status').html(`Successfully, delete information of '${name}'`)
+            }
+
+        })
+
+        $('#getOneBtn').click(() => {
+            const key = 'users/' + $('#searchInput').val().toLowerCase()
+            console.log(key)
+            database.ref(key).once('value', (snapshot) => {
+                const data = snapshot.val()
+                console.log(data)
+                $('#status').html(Object.values(data.project))
+            })
+            //return
+            //$('#status').empty()            //Clear the old input out
+            // if ($('#searchInput').val()) {
+            //     const requestURL = 'users/' + $('#searchInput').val().toLowerCase()
+            //     console.log('Making Ajax request: ', requestURL)
+            //     $.ajax({
+            //         url: requestURL,
+            //         type: 'GET',
+            //         dataType: 'json',
+            //         success: (data) => {
+            //             console.log('You received some data! ', data)
+            //             if(data)
+            //             $('#status').html(data.project)
+            //             else
+            //                 $('#status').append(`Please, enter your input again<br>`)        
+            //         }
+            //     })
+            // }
+            // else {
+            //     $('#status').append(`Please, enter your input again<br>`)
+            // }
+        })
+
+        $('#getAllBtn').click(() => {
+            database.ref('users/').once('value', (snapshot) => {
+                const data = snapshot.val()
+                console.log('You received some data!', Object.keys(data))
+                $('#status').empty()            //Clear the old input out
+                $('#status').html('All users: ' + Object.keys(data))
+            })
+            // $.ajax({
+            // url: 'users/',
+            // type: 'GET',
+            // dataType: 'json',
+            // success: (data) => {
+            //     console.log('You received some data.', data)
+            //     $.each(data, (index, value) => {
+            //         console.log(value)
+            //         $('#status').append(`${value}<br>`)
+            //     })
+            //     }
+            // })
+        })
+
+        $('#insertBtn').click(() => {
+            const name = $('#nameInsert').val().toLowerCase()
+            const project = $('#projectInsert').val().toLowerCase()
+            console.log(name + ' ' + project)
+            if (database.ref('users/' + name).set({project: [project]})) {
+                // $('#status').empty()            //Clear the old input out
+                // $('#status').html(`Successfully, insert information of '${name}'`)
+            }
+        })
+    })
+    
+    $(document).ajaxError(() => {
+        $('#status').html('Error, unknown ajaxErorr!')
+    })
+</script>
+</html>
