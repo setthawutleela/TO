@@ -174,10 +174,7 @@
             const name = $('#nameInsert').val().toLowerCase()
             const project = $('#projectInsert').val().toLowerCase()
             console.log(name + ' ' + project)
-            if (database.ref('users/' + name).set({project: [project]})) {
-                // $('#status').empty()            //Clear the old input out
-                // $('#status').html(`Successfully, insert information of '${name}'`)
-            }
+            database.ref('users/' + name).set({project: [project]})
         })
     })
     
