@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <style>
+            
+            body{
+                display: grid;
+                grid-template-rows: 200px 50px calc(100vh - 250px);
+                grid-template-columns: 300px 1fr;
+                margin: 0;
+            }
+
+            .header{
+                background-color: teal;
+                display: flex;
+                justify-content:flex-start ;
+                align-items: center;
+                width: 100%;
+                height: 200px;
+            }
+
+            .logo{
+                border-radius: 3000px;
+                height: 75%;
+                margin: 10px;
+            }
+
+            .titleText{
+                color: white;
+                font-weight: bold;
+                font-size: 72px;;
+            }
+
+            .navBar{
+                height: 50px;
+                width: 100%;
+                display: flex;
+            }
+
+            .navItem{
+                background-color: turquoise;
+                width: 14.285%;
+                height: 100%;
+            }
+
+            .navText{
+                color:white;
+                font-size: 18px;
+            }
+
+            .sideBar{
+                background-color: purple;
+                width: 300px;
+            }
+
+            .sideBarTop{
+                display: flex;
+                flex-direction: column;
+                background-color: black;
+                width: 300px;
+            }
+
+            .sideBarBottom{
+                display: flex;
+                flex-direction: column;
+                background-color: green;
+                width: 300px;
+            }
+
+            .sideBarItem{
+                width: 100%;
+                height: 50px;
+            }
+            
+            .middleText{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .buttonBorder{
+                border-color: white;
+                border-width: 0 1px 1px 0 ;
+                border-style: solid;
+            }
+
+            .contentHolder{
+                width: 100%;
+                height: auto;
+                background-color: cornsilk;
+            }
+
+            .profileItem{
+                width: 100%;
+                height: 50px;
+                align-items: flex-end ;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="header" style="grid-column: span 2;">
+            <img src="logo.jpg" class="logo" />
+            <span class="titleText">TITLE - Webtitle</span>
+        </div>
+        <div class="navBar" style="grid-column: span 2;">
+            
+            <div class="navItem middleText buttonBorder">
+                <span class="navText">Home</span>
+            </div>
+
+             <div class="navItem middleText buttonBorder">
+                <span class="navText">P1</span>
+            </div>
+
+            <div class="navItem middleText buttonBorder">
+                <span class="navText">P2</span>
+            </div>
+                
+            <div class="navItem middleText buttonBorder">
+                <span class="navText">P3</span>
+            </div>
+
+            <div class="navItem middleText buttonBorder">
+                <span class="navText">P4</span>
+            </div>
+
+            <div class="navItem middleText buttonBorder">
+                <span class="navText"></span>
+            </div>
+
+            <div class="navItem middleText buttonBorder">
+                <span class="navText">Login</span>
+            </div>
+        </div>
+        <div class="sideBar">
+            <div class="sideBarTop">
+                    <div class="sideBarItem buttonBorder">
+                
+                    </div>
+                    <div class="sideBarItem buttonBorder middleText">
+                        <span class="navText">Quicklink1</span>
+                    </div>
+                    <div class="sideBarItem buttonBorder middleText">
+                        <span class="navText">Quicklink2</span>
+                    </div>
+            </div>
+           <div class="sideBarBottom">
+                <div class="buttonBorder profileItem middleText">
+                    <span class="navText">Profile</span>
+                </div>
+           </div>
+            
+
+        </div>
+
+        
+        <div class="contentHolder">
+            <p>This is a content container</p>
+        </div>
+    </body>
+</html>
