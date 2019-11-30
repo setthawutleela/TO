@@ -14,32 +14,24 @@
 </head>
 <body class="bodyLogin">
     <div class="contentContainer">
-        <div class="logoLogin">
-                <img src="pic/SVG/logo.svg" style="height: 45vh; width: 45vh;">
+        <div class="logoLogin" style="margin-bottom: 1vh;">
+                <img src="../pic/SVG/logo.svg" style="height: 45vh; width: 45vh;">
         </div>
        
         <div class="Container">
-            <div class="inputField">
-                <div class="indicatorText">
-                <label>Email</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" class=textInput>
-                </div>
-            </div>
-           
-            <div class="inputField">
-                <div class="indicatorText">
-                    <label>Password</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" class="textInput">   
-                </div>
-            </div>
             
-            <div class="buttonHolder">
-                <input type="button" class="button-accept loginButton" value="Login">
-            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control rounded-pill" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+             </div>
+
+             <div class="input-group mb-3">
+                <input type="password" class="form-control rounded-pill" placeholder="password" aria-label="password" aria-describedby="basic-addon2">
+             </div>
+            
+
+            
+            <input type="button" class="btn btn-primary btn-lg btn-block rounded-pill" style="background-color: #1fc0c3; border-style: hidden; margin-top: 1vh;" value="Login">
+            
             
             <div style="margin-top: 5px;">
                 <a href="forgetPassword.html">forgot password?</a>

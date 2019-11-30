@@ -36,7 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: fit-content;
+    width: 25vw;
     height: fit-content;
     margin-bottom: 5px;
 }
