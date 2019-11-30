@@ -1,0 +1,43 @@
+.bodyLogin{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bodyHome{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.logoLogin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40vh;
+    padding-bottom: 50px;
+    margin: 0%;
+}
+
+.contentHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.actionZone{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    float: right;
+}
+
+.grid{
+    display: grid ;
+}
