@@ -28,7 +28,6 @@ app.post('/forgotPassword', (req, res) => {
     const { email } = req.body
     //emailMd5 = email
     let emailMd5 = crypto.createHash('md5').update(email).digest("hex")
-    sess = email
     //console.log("This in fotgotpassword email")
     // console.log(sess)
     // console.log(email)
