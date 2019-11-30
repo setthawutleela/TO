@@ -29,7 +29,7 @@ app.post('/forgotPassword', (req, res) => {
     //emailMd5 = email
     let emailMd5 = crypto.createHash('md5').update(email).digest("hex")
     sess = email
-    // console.log("This in fotgotpassword email")
+    //console.log("This in fotgotpassword email")
     // console.log(sess)
     // console.log(email)
     const key = encrypt.encrypt({
@@ -43,8 +43,10 @@ app.post('/forgotPassword', (req, res) => {
         subject: 'Reset Password on Team Organizing'
     }
     mail(header)
-    return res.send('Please check your email')
+    res.redirect('/gocheckyouremail.html')
 })
+
+
 
 app.get('/resetPassword', (req, res) => {
     try{
@@ -53,8 +55,8 @@ app.get('/resetPassword', (req, res) => {
         const key = req.query.key
        // console.log(key)
         const decrypt = encrypt.decrypt(key)
-        console.log(decrypt)
-        console.log('user cookie', req.cookies)
+        //console.log(decrypt)
+        //console.log('user cookie', req.cookies)
         // req.cookies.email = decrypt.email
         res.cookie('email', decrypt.email)
        // res.send(JSON.stringify(sess))
