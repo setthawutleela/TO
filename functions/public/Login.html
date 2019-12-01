@@ -4,46 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{TO} Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/button-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/content-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/page.css">
     <script src = "md5.min.js"></script>
+
 </head>
-<body>
-    <div class="container">
-    <h1>Welcome to Team Organizer</h1><br>
+<body class="bodyLogin">
+    <div class="contentContainer">
+        <div class="logoLogin" style="margin-bottom: 1vh;">
+                <img src="pic/SVG/logo.svg" style="height: 45vh; width: 45vh;">
+        </div>
+       
+        <div class="Container">
+            
+            <div class="input-group mb-3">
+                <input type="email" class="form-control rounded-pill" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" id='emailInput' required>
+             </div>
 
-    <br/> 
-    <input type="text" class="form-control" placeholder="Email" aria-label="Example text with button addon" aria-describedby="button-addon1" id='emailInput' required>
-    <br/>
-    <input type="text" class="form-control" placeholder="Password" aria-label="Example text with button addon" aria-describedby="button-addon1" id='passwordInput' required>
-    <br/>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary" type="button" id="loginBtn">Login</button>
+             <div class="input-group mb-3">
+                <input type="password" class="form-control rounded-pill" placeholder="password" aria-label="password" aria-describedby="basic-addon2" id='passwordInput' required>
+             </div>
+            
+            
+            <input type="button" class="btn btn-primary btn-lg btn-block rounded-pill" style="background-color: #1fc0c3; border-style: hidden; margin-top: 1vh;" value="Login"  id="loginBtn">
+            
+            
+            <div style="margin-top: 5px;">
+                <a href="forgotPassword.html">forgot password?</a>
             </div>
-        </div>   
 
-
-        <br/>
-        <h5>Don't have an account? Create one:</h5><br>
-        <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary" type="button" id="signupBtn">Sign Up</button>
-                </div>
-            </div>   
-    
-
+            <div style="margin: 10px;">
+                <label> or </label>
+            </div>
+            
+            <div>
+                <a href="Register.html">Register</a>
+            </div>
+        </div>
     </div>
-
-
-
 </body>
-
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 

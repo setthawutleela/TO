@@ -6,6 +6,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+<<<<<<< HEAD
+=======
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+>>>>>>> 5506476cecda84521f2a30040e15e02b46b724fb
 }
 
 .bodyHome{
@@ -20,7 +26,10 @@
     justify-content: center;
     width: 100%;
     height: 40vh;
+<<<<<<< HEAD
     padding-bottom: 50px;
+=======
+>>>>>>> 5506476cecda84521f2a30040e15e02b46b724fb
     margin: 0%;
 }
 
@@ -49,4 +58,8 @@
 
 .grid{
     display: grid ;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5506476cecda84521f2a30040e15e02b46b724fb

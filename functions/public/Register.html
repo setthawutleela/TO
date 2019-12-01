@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{TO} Registeration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/button-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/content-style.css">
+    <link rel="stylesheet" type="text/css" href="../css/page.css">
+    <script src = "md5.min.js"></script>
+
+</head>
+<body class="bodyLogin">
+    <div class="contentContainer">
+        <div class="Container">
+            <div class="titleText">REGISTRATION</div>
+            <label></label>
+
+
+
+            <div class="inputField">
+                    <span class="indicatorText">Name</span>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control rounded-pill" placeholder="Name" aria-label="Email" aria-describedby="basic-addon1" id ="nameInsert">
+                    </div>
+                </div>
+        </div>
+        <div class="inputField">
+            <span class="indicatorText">E-mail</span>
+            <div class="input-group mb-3">
+                <input type="email" class="form-control rounded-pill" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" id ="emailInsert">
+            </div>
+        </div>
+
+        <div class="inputField">
+            <span class="indicatorText">Password</span>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control rounded-pill" placeholder="Password" aria-label="Email" aria-describedby="basic-addon1" id ="passwordInsert">
+            </div>
+        </div>
+
+        <div class="inputField">
+            <span class="indicatorText">Confirm Password</span>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control rounded-pill" placeholder="Confirm Password" aria-label="Email" aria-describedby="basic-addon1" id ="repasswordInsert">
+            </div>
+        </div>
+
+        <input type="button" class="btn btn-primary btn-lg btn-block rounded-pill" style="background-color: #1fc0c3; border-style: hidden; margin-top: 1vh;" value="Register" id = insertBtn >
+    </div>
+</body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+    authDomain: "swap-inc-to-da352.firebaseapp.com",
+    databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+    projectId: "swap-inc-to-da352",
+    storageBucket: "swap-inc-to-da352.appspot.com",
+    messagingSenderId: "909262246523",
+    appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+    measurementId: "G-PC959CD68Y"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script type='text/javascript'>
+
+        $(document).ready(() => {
+        console.log('HELLO BROWSER')
+        const database = firebase.database()
+
+
+
+        $('#insertBtn').click(() => {
+
+            const name = $('#nameInsert').val()
+            const email = $('#emailInsert').val().toLowerCase()
+            const password = $('#passwordInsert').val()
+            const repassword = $('#repasswordInsert').val()
+            var indexat = email.indexOf("@"); //Index of "@" in the email field
+             var indexdot = email.indexOf("."); //Index of "." in the email field
+
+
+                //Blank field validation of fullname, mobile no and address. The function will generate an alert message if "fullname" or "mobile no" or "address" field is blank  
+    if(name == '')
+    {
+	  alert('Empty field detected! Please fill out all the fields.');
+	  $('#nameInsert').focus();
+    }
+    else if(email == '')
+    {
+	  alert('Empty field detected! Please fill out all the fields.');
+	  $('#emailInsert').focus(); 
+    }
+
+
+    else if(indexat <= 1 || (indexdot-indexat) <= 2)
+    {
+	  alert('Please enter a valid email address!');
+	  $('#emailInsert').focus();
+    }
+
+    else if(password == '')
+    {
+	  alert('Empty field detected! Please fill out all the fields.');
+	  $('#passwordInsert').focus(); //The focus function will move the cursor to "fullname" field
+    }
+
+    else if(password.length < 7 || password.length > 19)
+    {
+	  alert('Password must be bewteen 8-20 characters');
+	  $('#passwordInsert').focus();
+    }
+
+    else if(repassword == '')
+    {
+	  alert('Empty field detected! Please fill out all the fields.');
+	  $('#repasswordInsert').focus(); //The focus function will move the cursor to "fullname" field
+    }
+    
+    //Validation of password. The function will generate an alert message if "password" field is not same as "retype password".
+    else if(password != repassword )
+    {
+	  alert('Password and Re-entered passwords do not match');
+	  $('#repasswordInsert').focus();
+    }
+    else
+    {
+    
+            var userId = md5(email)
+            console.log(name+ ' '+ email + ' ' + password)
+            database.ref('users/' + userId).set({
+                email: email,
+                name: name,
+                password: repassword,
+            })
+
+
+            window.location.href = 'functions/public/RegisterDone.html'
+    }
+
+        })
+
+
+
+
+    })
+    
+    $(document).ajaxError(() => {
+        $('#status').html('Error, unknown ajaxErorr!')
+    })
+</script>
+</html>

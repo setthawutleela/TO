@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <title>TESTER</title>
+        <style>
+            .textTitle{
+                font-size: 72px;
+                color: cornflowerblue;
+                text-align: center;
+            }
+            #textOrange{
+                color: darkgoldenrod;
+            }
+
+            .divBig{
+                height: fit-content;
+                padding:50px 0 50px 0;
+                width: 100%;
+                background-color: gold;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .divSmall{
+                display: block;
+            }
+
+            .topDiv{
+                display: flex;
+            }
+            
+            .leftDiv{
+                background-color: red;
+                flex-direction: column;
+            }
+
+            .rightDiv{
+                background-color: blue;
+            }
+            .leftDiv, .rightDiv{
+                width: 300px;
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .bottomDiv{
+                background-color: green;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 300px;
+            }
+
+            .penguin{
+                width: 50%;
+            }
+
+            .navBar{
+                display: flex;
+                height: 50px;
+                width: 100vw;
+                
+            }
+            
+            .navItem{
+                background-color: red;
+                width: 33.33333333333333333%;
+                border: solid;
+                border-color: white;
+                border-width: 1px;
+
+            }
+            
+            .navText{
+                color: white;
+                font-weight: bold;
+            }
+
+            body{
+                padding: 0;
+                margin: 0;
+            }
+
+            .middleText{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .gridDiv{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <h1 class="textTitle" id="textOrange">HELLO WORLD</h1>
+        <p> EIEIza <span> I am 25 years old </span> </p> 
+        <div class="navBar">
+            <div class="navItem middleText">
+               <span class="navText">Home</span>
+            </div>
+            <div class="navItem middleText">
+                <span class="navText">P1</span>
+            </div>
+            <div class="navItem middleText">
+                <span class="navText">P2</span>
+            </div>
+        </div>
+        <div class="divBig"> 
+            <div class="divSmall">
+                <div class="topDiv">    
+                    <div class="leftDiv">
+                        <h2>THIS IS A DIV</h2>
+                        <h3>THIS IS A SECOND DIV</h3> 
+                    </div>
+
+                    <div class="rightDiv">
+                        <p>This is a third div</p>
+                    </div>
+                </div>
+                <div class="bottomDiv">
+                    <img src="kiki.jpg" class="penguin"/>
+                </div>
+            </div>
+
+            <div class="gridDiv">
+                <div class="leftDiv">
+                    <h2>THIS IS A DIV</h2>
+                    <h3>THIS IS A SECOND DIV</h3> 
+                </div>
+
+                <div class="rightDiv">
+                    <p>This is a third div</p>
+                </div>
+                <div class="bottomDiv" style="grid-column: span 2;">
+                    <img src="kiki.jpg" class="penguin"/>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>

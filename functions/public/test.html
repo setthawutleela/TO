@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src = "md5.min.js"></script>
 </head>
 <body>
     <div class="pleum container">
@@ -27,21 +26,11 @@
 
     <hr>
     <h4>Insert into databasse</h4><br>
-    <input type="text" class="form-control" placeholder="Enter Full Name" aria-label="Example text with button addon" aria-describedby="button-addon1" id='nameInsert'>
-    <br/>
-    <input type="text" class="form-control" placeholder="Enter Username" aria-label="Example text with button addon" aria-describedby="button-addon1" id='usernameInsert'>
-    <br/>
-    <input type="text" class="form-control" placeholder="Enter Your Email" aria-label="Example text with button addon" aria-describedby="button-addon1" id='emailInsert'>
-    <br/>
-    <input type="text" class="form-control" placeholder="Enter Password" aria-label="Example text with button addon" aria-describedby="button-addon1" id='tpasswordInsert'>
-    <br/>
-    <input type="text" class="form-control" placeholder="Re-Enter Password" aria-label="Example text with button addon" aria-describedby="button-addon1" id='passwordInsert'>
-    <br/>
-
-    
+    <input type="text" class="form-control" placeholder="Enter Username.." aria-label="Example text with button addon" aria-describedby="button-addon1" id='nameInsert'>
+    <input type="text" class="form-control" placeholder="Enter Your Project.." aria-label="Example text with button addon" aria-describedby="button-addon1" id='projectInsert'>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" id="insertBtn">Done</button>
+          <button class="btn btn-outline-secondary" type="button" id="insertBtn">Insert</button>
         </div>
     </div>
 
@@ -55,43 +44,9 @@
     </div>
 
     <hr>
-    <h4>Update data in database</h4><br>
-    <input type="text" class="form-control" placeholder="Enter Username" aria-label="Example text with button addon" aria-describedby="button-addon1" id='updateInput'>
-    <br/>
-    <input type="text" class="form-control" placeholder="Enter New Name" aria-label="Example text with button addon" aria-describedby="button-addon1" id='unameInsert'>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" id="updateBtn">Update</button>
-        </div>
-    </div>
-    <br/>
-
-    <input type="text" class="form-control" placeholder="Enter New Password" aria-label="Example text with button addon" aria-describedby="button-addon1" id='newpasswordInsert'>
-    <br/>
-    <input type="text" class="form-control" placeholder="Re-Enter Password" aria-label="Example text with button addon" aria-describedby="button-addon1" id='upasswordInsert'>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" id="updateBtn3">Update</button>
-        </div>
-    </div>
-    <br/>
-    <input type="text" class="form-control" placeholder="Enter New Username" aria-label="Example text with button addon" aria-describedby="button-addon1" id='uUsernameInsert'>
-    <br/>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" id="updateBtn2">Update</button>
-        </div>
-    </div>
-
-    
-    <hr>
     <h4>Result</h4><br>
     <div id="status"></div>
     </div>
-
-
 
 </body>
 
@@ -103,8 +58,6 @@
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
-
-
 
 <script>
   // Your web app's Firebase configuration
@@ -125,7 +78,7 @@
 
 <script type='text/javascript'>
 
-        $(document).ready(() => {
+    $(document).ready(() => {
         console.log('HELLO BROWSER')
         const database = firebase.database()
         database.ref('users/').on('value', (snapshot) => {
@@ -134,8 +87,8 @@
             if (allUsers) {
                 $('#status').html(''); // clear the HTML
                 $('#status').append('List of users: ')
-                Object.keys(allUsers).forEach((username) => {
-                    $('#status').append('<li>' + allUsers[username].name + '</li>')
+                Object.keys(allUsers).forEach((name) => {
+                    $('#status').append('<li>' + name + ' ' + allUsers[name].project + '</li>')
                 })
             }
         })
@@ -155,8 +108,8 @@
         })
 
         $('#deleteBtn').click(() => {
-            const username = $('#deleteInput').val().toLowerCase();
-            if(database.ref('users/' + username).remove()){
+            const name = $('#deleteInput').val().toLowerCase();
+            if(database.ref('users/' + name).remove()){
                 // $('#status').empty()            //Clear the old input out
                 // $('#status').html(`Successfully, delete information of '${name}'`)
             }
@@ -169,7 +122,6 @@
             database.ref(key).once('value', (snapshot) => {
                 const data = snapshot.val()
                 console.log(data)
-                $('#status').html('Name: ' + data.name + '<br/>'+'Username: ' + data.username + '<br/>'+ 'Email: ' + data.email +'<br/>'+ 'Password: ' + data.password +'<br/>')
                 //$('#status').html(Object.values(data.name))
                 $('#status').html(Object.values(data.project))
             })
@@ -217,84 +169,12 @@
             // })
         })
 
-        var i = Math.round(Date.now() + Math.random());
-
         $('#insertBtn').click(() => {
-            const userId = i++;
             const name = $('#nameInsert').val().toLowerCase()
-            const username = $('#usernameInsert').val().toLowerCase()
-            const email = $('#emailInsert').val().toLowerCase()
-            const password = $('#passwordInsert').val().toLowerCase()
-            var hash = md5(email)
-            console.log(name+ ' '+ username +  ' ' + email + ' ' + password + ' ' + userId)
-            database.ref('users/' + hash).set({
-                email: email,
-                name: name,
-                password:password,
-                userId: userId,
-                username: username,
-            })
-
-
+            const project = $('#projectInsert').val().toLowerCase()
+            console.log(name + ' ' + project)
+            database.ref('users/' + name).set({project: [project]})
         })
-
-        $('#updateBtn').click(() => {
-            // const password = $('#upasswordInsert').val().toLowerCase()
-            const name = $('#unameInsert').val().toLowerCase()
-            const hash = $('#updateInput').val().toLowerCase()
-            // const username = $('#uUsernameInsert').val().toLowerCase()
-            
-            database.ref('users/' + hash).update({
-                
-                name: name,
-                // password: password,
-                // username: username, 
-                
- 
-            })
-
-
-        })
-
-        $('#updateBtn2').click(() => {
-            // const password = $('#upasswordInsert').val().toLowerCase()
-            // const name = $('#unameInsert').val().toLowerCase()
-            const hash = $('#updateInput').val().toLowerCase()
-            const username = $('#uUsernameInsert').val().toLowerCase()
-            
-            database.ref('users/' + hash).update({
-                
-                // name: name,
-                // password: password,
-                username: username, 
-                
- 
-            })
-
-
-        })
-
-
-        $('#updateBtn3').click(() => {
-            const password = $('#upasswordInsert').val().toLowerCase()
-            // const name = $('#unameInsert').val().toLowerCase()
-            const hash = $('#updateInput').val().toLowerCase()
-            // const username = $('#uUsernameInsert').val().toLowerCase()
-            
-            database.ref('users/' + hash).update({
-                
-                // name: name,
-                password: password,
-                // username: username, 
-                
- 
-            })
-
-
-        })
-
-
-
     })
     
     $(document).ajaxError(() => {
