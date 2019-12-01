@@ -10,20 +10,21 @@
     <link rel="stylesheet" type="text/css" href="css/page.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
 <body class="bodyHome">
         <!-- NAVBAR: Image and text -->
         <nav class="navbar navbar-light shadow p-3" style="background-color:white;">
-            <a class="navbar-brand" href="homepage.html">
+            <a class="navbar-brand" href="/homepage">
                 <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 Team Organization
             </a>
-<!--     
-            <a class="float-right" href="profile.html">
-                <img src="pic/Profile/59786761_2521361267929617_5558301307296546816_n.jpg" width="40" height="40" class="rounded-circle">
-                <span style="color:black; margin-left: 0.5vw; padding-right: 0.5vw;" id = "profileName"></span> -->
-
             <div class="dropdown show float-right">
             <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
@@ -31,8 +32,8 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <a class="dropdown-item" href="Login.html" id = "logoutBtn">Logout</a>
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/login" id = "logoutBtn">Logout</a>
             </div>
         </div>
         </nav>
@@ -51,7 +52,7 @@
                                 <div class="inputField">
                                     <span class="indicatorText" id = "currentName"></span>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control rounded-pill" placeholder="Edit Name" aria-label="Email" aria-describedby="basic-addon1" id="unameInsert">
+                                        <input type="text" class="form-control rounded-pill" placeholder="Enter new name" aria-label="Email" aria-describedby="basic-addon1" id="unameInsert">
                                     </div>
                                 </div>
 
@@ -61,63 +62,23 @@
                                         </div>
                                     </div>
                                     <br/>
-                                
-
-
-                                    <div class="inputField">
-                                            <span class="indicatorText">Current Password</span>
-                                            <div class="input-group mb-3">
-                                                <input type="password" class="form-control rounded-pill" placeholder="Current Password" aria-label="Email" aria-describedby="basic-addon1" id="currentpasswordInsert">
-                                            </div>
-
-                                    <div class="inputField">
-                                    <span class="indicatorText">Password</span>
-                                    <div class="input-group mb-3">
-                                        <input type="Password" class="form-control rounded-pill" placeholder="New Password" aria-label="Email" aria-describedby="basic-addon1" id="newpasswordInsert">
-                                    </div>
-                                    <div class="inputField">
-                                            <span class="indicatorText">Confirm Password</span>
-                                            <div class="input-group mb-3">
-                                                <input type="Password" class="form-control rounded-pill" placeholder="Retype Password" aria-label="Email" aria-describedby="basic-addon1" id="upasswordInsert" >
-                                            </div>
                                 </div>
-                                <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                          <button type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;" id="updateBtn3">Apply</button>
-                                        </div>
-                                    </div>
-                                    <br/>
-
-
-                                <p class="card-text">
-                                 <br>
-                                    Projects handling now: 3
-                                </p>
                             </div>
                         </div>
-                    </div>
                 </div>
-            </div>
             
                 <!--Action Zone-->
         <div class="actionZone-left">
-            <div class="buttonHolder" style="float: left;">
-                <button onclick="document.location='report.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
+            <div class="buttonHolder">
+                <button onclick="document.location='/report'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
             </div>
         </div>
     
         <div class="actionZone-right">
             <div class="buttonHolder">
-                <button onclick="document.location='profile.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;">&nbsp; Done &nbsp; </button>
+                <button onclick="document.location='/profile'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;">&nbsp; Done &nbsp; </button>
             </div>
         </div>
-    
-    
-    
-    
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
     </body>
 
@@ -134,20 +95,20 @@
 
 
     <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
-        authDomain: "swap-inc-to-da352.firebaseapp.com",
-        databaseURL: "https://swap-inc-to-da352.firebaseio.com",
-        projectId: "swap-inc-to-da352",
-        storageBucket: "swap-inc-to-da352.appspot.com",
-        messagingSenderId: "909262246523",
-        appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
-        measurementId: "G-PC959CD68Y"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+            authDomain: "swap-inc-to-da352.firebaseapp.com",
+            databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+            projectId: "swap-inc-to-da352",
+            storageBucket: "swap-inc-to-da352.appspot.com",
+            messagingSenderId: "909262246523",
+            appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+            measurementId: "G-PC959CD68Y"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
     </script>
 
     <script type='text/javascript'>
@@ -155,99 +116,47 @@
         $(document).ready(() => {
         console.log('HELLO BROWSER')
         const database = firebase.database()
-
-
-
-
-            database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
-                const data = snapshot.val()
-                console.log(data)
-                $('#profileName').html(data.name)
-
-            })
-
-            database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
-                const data = snapshot.val()
-                console.log(data)
-                $('#currentName').html('Current Name:' + ' ' + data.name)
-
-            })
-
-
-            $('#updateBtn').click(() => {
-
-                const name = $('#unameInsert').val()
-
-                database.ref('users/' + sessionStorage.getItem('userId')).update({
-                    
-                    name: name,
-
-                })
-                window.location.href = 'editprofile.html'
-
-            })
-
-
-
-            $('#updateBtn3').click(() => {
-
-            const password = $('#newpasswordInsert').val()
-            const repassword = $('#upasswordInsert').val()
-            const cpassword = $('#currentpasswordInsert').val()
-
-
-            database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
-                const data = snapshot.val()
-                console.log(data)
-            
-
-            if(cpassword == data.password)    
-            {
-                        if(password.length < 7 || password.length > 19)
-                        {
-                        alert('Password must be bewteen 8-20 characters');
-                        $('#newpasswordInsert').focus();
-                        }
-                        else if(repassword == '')
-                        {
-                        alert('Confirm-Password field empty! Please fill in field.');
-                        $('#upasswordInsert').focus(); //The focus function will move the cursor to "fullname" field
-                        }
-                        else if(password != repassword )
-                        {
-                        alert('Password and Re-entered passwords do not match');
-                        $('#upasswordInsert').focus();
-                        }
-                        else{
-                        database.ref('users/' + sessionStorage.getItem('userId')).update({
-                            
-                            password: password,  
-
-                            })
-                             }
-
-            }
-            else
-            {
-                alert('Incorrect Password! You need to correctly enter the "Current Password" to change password.');
-                        $('#currentpasswordInsert').focus(); 
-            }
-
-
-            })
+        database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
+            const data = snapshot.val()
+            console.log(data)
+            $('#profileName').html(data.name)
 
         })
 
-        $('#logoutBtn').click(() => {
-            
+        //Check session
+        if(!sessionStorage.getItem('userId'))
+            window.location.href = '/login'
+        
+        sessionStorage.removeItem('projectId')
+
+        database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
+            const data = snapshot.val()
+            console.log(data)
+            $('#currentName').html('Current Name:' + ' ' + data.name)
+
+        })
+
+        $('#updateBtn').click(() => {
+            const name = $('#unameInsert').val()
+            if(name == ''){
+                alert('Empty field detected! Please fill out all the fields.');
+                $('#nameInsert').focus();
+                }
+            else{
+                var bOk = confirm('Are you sure you want to edit the name?')
+                if(bOk){
+                    database.ref('users/' + sessionStorage.getItem('userId')).update({
+                                                                                        name: name,
+                                                                                    })
+                    window.location.href = '/profile/edit'
+                }
+            }
+        })
+
+        $('#logoutBtn').click(() => { 
             sessionStorage.clear();
-            window.location.href = '/Login.html'
-
+            window.location.href = '/login'
              })
-
         })
-
-
-
 </script>
 </html>

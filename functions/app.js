@@ -14,6 +14,7 @@ const port = process.env.PORT || 8000
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, '/public')))
 app.use('/project', express.static(path.join(__dirname, '/public')))
+app.use('/profile', express.static(path.join(__dirname, '/public')))
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname,'public/Login.html'))
@@ -37,6 +38,10 @@ app.get('/project/team-management', (req, res) => {
 
 app.get('/profile', (req, res) => {
     res.sendFile(path.join(__dirname,'public/profile.html'))
+});
+
+app.get('/profile/edit', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/editprofile.html'))
 });
 
 app.get('/report', (req, res) => {
@@ -65,20 +70,12 @@ app.get('/gocheckyouremail', (req, res) => {
 
 const HOST = 'http://localhost:8000'
 app.post('/forgotPassword', (req, res) => {
-    // console.log(req.body)
     const email = req.body
-    console.log(email)
-    //emailMd5 = email
-    // let emailMd5 = crypto.createHash('md5').update(email).digest("hex")
-
-    //console.log("This in fotgotpassword email")
-    // console.log(sess)
-    // console.log(email)
     const key = encrypt.encrypt({
         email
     })
     console.log("key is", key)
-    const link = HOST + '/resetPassword?key=' + key
+    const link = HOST + '/reset-password?key=' + key
     const header = {
         to: email,
         from: 'info@to.co.th',
@@ -93,20 +90,11 @@ app.post('/forgotPassword', (req, res) => {
 
 app.get('/resetPassword', (req, res) => {
     try{
-        // console.log("If email print it is global now")
-        // console.log(sess)
         const key = req.query.key
         console.log(key)
-       // console.log(key)
         const decrypt = encrypt.decrypt(key)
-        //console.log(decrypt)
-        //console.log('user cookie', req.cookies)
-        // req.cookies.email = decrypt.email
         res.cookie('email', decrypt.email)
-       // res.send(JSON.stringify(sess))
-        //res.render(__dirname + "/resetPassword.html", {sess:sess});
         res.redirect('/reset-password')
-        //res.send({sess : , redirect_path: '/resetPassword.html'});
     } catch (err) {
         res.send('Key not valid, Please try again')
     }
