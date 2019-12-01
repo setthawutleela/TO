@@ -19,11 +19,22 @@
                 <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                 Team Organization
             </a>
-    
+<!--     
             <a class="float-right" href="profile.html">
                 <img src="pic/Profile/59786761_2521361267929617_5558301307296546816_n.jpg" width="40" height="40" class="rounded-circle">
-                <span style="color:black; margin-left: 0.5vw; padding-right: 0.5vw;" id = "profileName"></span>
+                <span style="color:black; margin-left: 0.5vw; padding-right: 0.5vw;" id = "profileName"></span> -->
+
+            <div class="dropdown show float-right">
+            <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
+                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;"  id = "profileName"></span>
             </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="profile.html">Profile</a>
+                <a class="dropdown-item" href="Login.html" id = "logoutBtn">Logout</a>
+            </div>
+        </div>
         </nav>
     
         <!--content-->
@@ -33,7 +44,7 @@
                 <div class="card mb-2" style="max-width: 1080px; display: flex;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="pic/Profile/59786761_2521361267929617_5558301307296546816_n.jpg" class="card-img" alt="...">
+                            <img src="pic/Profile/user.png" class="card-img" style="padding: 25px;" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -226,6 +237,13 @@
             })
 
         })
+
+        $('#logoutBtn').click(() => {
+            
+            sessionStorage.clear();
+            window.location.href = '/Login.html'
+
+             })
 
         })
 

@@ -46,6 +46,7 @@ const HOST = 'http://localhost:3000'
 app.post('/forgotPassword', (req, res) => {
     //console.log(req.body)
     const { email } = req.body
+    //console.log(email)
     //emailMd5 = email
     let emailMd5 = crypto.createHash('md5').update(email).digest("hex")
     //console.log("This in fotgotpassword email")
@@ -54,6 +55,7 @@ app.post('/forgotPassword', (req, res) => {
     const key = encrypt.encrypt({
         email
     })
+    //console.log("key is", key)
     const link = HOST + '/resetPassword?key=' + key
     const header = {
         to: email,
