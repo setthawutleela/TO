@@ -21,16 +21,17 @@
             Team Organization
         </a>
 
+
         
         <div class="dropdown show float-right">
             <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
-                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;">Setthawut L.</span>
+                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;"  id = "profileName"></span>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="profile.html">Profile</a>
-                <a class="dropdown-item" href="Login.html">Logout</a>
+                <a class="dropdown-item" href="Login.html" id = "logoutBtn">Logout</a>
             </div>
         </div>
 
@@ -107,4 +108,61 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+    authDomain: "swap-inc-to-da352.firebaseapp.com",
+    databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+    projectId: "swap-inc-to-da352",
+    storageBucket: "swap-inc-to-da352.appspot.com",
+    messagingSenderId: "909262246523",
+    appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+    measurementId: "G-PC959CD68Y"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script type='text/javascript'>
+
+    $(document).ready(() => {
+    console.log('HELLO BROWSER')
+    const database = firebase.database()
+
+
+
+
+        database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
+            const data = snapshot.val()
+            console.log(data)
+            $('#profileName').html(data.name)
+
+        })
+
+        $('#logoutBtn').click(() => {
+            
+            sessionStorage.clear();
+            window.location.href = '/Login.html'
+
+             })
+    })
+    
+    $(document).ajaxError(() => {
+        $('#status').html('Error, unknown ajaxErorr!')
+    })
+</script>
 </html>
