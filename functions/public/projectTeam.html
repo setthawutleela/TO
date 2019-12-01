@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 1</title>
+    <link rel="stylesheet" type="text/css" href="css/button-style.css">
+    <link rel="stylesheet" type="text/css" href="css/content-style.css">
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+</head>
+<body class="bodyHome">
+            <!-- NAVBAR: Image and text -->
+    <nav class="navbar navbar-light shadow p-3 flex-md-nowrap" style="background-color:white;">
+        <a class="navbar-brand" href="homepage.html">
+            <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Team Organization
+        </a>
+
+        <div class="dropdown show float-right">
+            <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
+                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;">Setthawut L.</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="profile.html">Profile</a>
+                <a class="dropdown-item" href="Login.html">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row" style="margin-right: 0;"> 
+        <!--sidebar-->
+        <nav class="col-md-2 d-none d-sm-block bg-dark sidebar" style="height: 92.4vh;">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-light " href="projectDashboard.html">
+                            Dashboard
+                            
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light">
+                            Tasks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projectTeam.html">
+                            Team
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--Main-->
+        <main role="main" class="col-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom" style="margin-bottom: 5vh;">
+                <h1 class="h2">Team members</h1>
+            </div>
+            
+             
+                <div class="row">
+                    <div class="col" style="display: flex; justify-content: center;">
+                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Setthawut L.</h5>
+                                        <p class="card-text">setthawut.leela@gmail.com</p>
+                                        <span class="badge badge-pill badge-info">Project Manager</span>
+                                        <br><br>
+                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Setthawut L." >Delete</button>
+                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="setthawut.leela@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="display: flex; justify-content: center;">
+                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Wattana Y.</h5>
+                                        <p class="card-text">pleum164@gmail.com</p>
+                                        <span class="badge badge-pill badge-info">Billionair</span>
+                                        <br><br>
+                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Wattana Y." >Delete</button>
+                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="pleum164@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col" style="display: flex; justify-content: center;">
+                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Naphatthorn k.</h5>
+                                        <p class="card-text">naphatthorn.k@gmail.com</p>
+                                        <span class="badge badge-pill badge-info">GB</span>
+                                        <br><br>
+                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Naphatthorn K." >Delete</button>
+                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="naphatthorn.k@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="display: flex; justify-content: center;">
+                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Abed B.</h5>
+                                        <p class="card-text">abed.bin@gmail.com</p>
+                                        <span class="badge badge-pill badge-info">Stripper</span>
+                                        <br><br>
+                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Abed B." >Delete</button>
+                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="abed.bin@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+        </main>
+
+        <!--Modal: EditModal-->
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Member Email:</label>
+                        <input type="text" class="form-control user" id="recipient-name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">New role:</label>
+                        <input type="text" class="form-control" id="newRole">
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" >Apply</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal: DeleteModal-->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete: </p> 
+                    <span id="user">&user</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--Action Zone-->
+    <div class="actionZone-left">
+        <div class="buttonHolder" style="float: left;">
+            <button onclick="document.location='report.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>
+    
+    $('#editModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        console.log(recipient)
+        modal.find('.recipient-name').text(recipient)
+        modal.find('.modal-body .user').val(recipient)
+    })
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        console.log(recipient)
+        modal.find('.recipient-name').text(recipient)
+        modal.find('.modal-body .user').text(recipient)
+    })
+
+    </script>
+
+</body>
+</html>
