@@ -1,0 +1,37 @@
+
+.buttonHolder{
+    margin: 5px;
+    margin-bottom: 3vh;
+    margin-right: 1vw;   
+}
+
+.button-accept{
+    background-color: #1fc0c3;
+    border-style: hidden;
+    color: white;
+    width: 110px;
+    height: 45px;
+    border-radius: 55px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.loginButton{
+    width: calc(15vw + 15px);
+}
+
+.button-decline{
+    background-color: #fe8a71;
+    border-color: #fe8a71;
+    border-width: 2px;
+    border-style: solid;
+    color: white;
+}
+
+.btn-custom-accept{
+    background-color: #1fc0c3;
+    border-style: hidden;
+    color: white;
+    border-radius: 55px;
+    width: fit-content;
+}
