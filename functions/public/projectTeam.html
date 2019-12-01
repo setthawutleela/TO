@@ -10,14 +10,19 @@
     <link rel="stylesheet" type="text/css" href="css/page.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src = "md5.min.js"></script>
 
 </head>
 <body class="bodyHome">
             <!-- NAVBAR: Image and text -->
     <nav class="navbar navbar-light shadow p-3 flex-md-nowrap" style="background-color:white;">
-        <a class="navbar-brand" href="homepage.html">
+        <a class="navbar-brand" href="/homepage">
             <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Team Organization
         </a>
@@ -25,12 +30,12 @@
         <div class="dropdown show float-right">
             <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
-                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;">Setthawut L.</span>
+                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;" id='profileName'></span>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <a class="dropdown-item" href="Login.html">Logout</a>
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/login">Logout</a>
             </div>
         </div>
     </nav>
@@ -41,7 +46,7 @@
             <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link text-light " href="projectDashboard.html">
+                        <a class="nav-link text-light " href="/project/access">
                             Dashboard
                             
                         </a>
@@ -52,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="projectTeam.html">
+                        <a class="nav-link active" href="/project/team-management">
                             Team
                             <span class="sr-only">(current)</span>
                         </a>
@@ -65,89 +70,8 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom" style="margin-bottom: 5vh;">
                 <h1 class="h2">Team members</h1>
             </div>
-            
-             
-                <div class="row">
-                    <div class="col" style="display: flex; justify-content: center;">
-                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Setthawut L.</h5>
-                                        <p class="card-text">setthawut.leela@gmail.com</p>
-                                        <span class="badge badge-pill badge-info">Project Manager</span>
-                                        <br><br>
-                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Setthawut L." >Delete</button>
-                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="setthawut.leela@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col" style="display: flex; justify-content: center;">
-                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Wattana Y.</h5>
-                                        <p class="card-text">pleum164@gmail.com</p>
-                                        <span class="badge badge-pill badge-info">Billionair</span>
-                                        <br><br>
-                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Wattana Y." >Delete</button>
-                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="pleum164@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="w-100"></div>
-                    <div class="col" style="display: flex; justify-content: center;">
-                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Naphatthorn k.</h5>
-                                        <p class="card-text">naphatthorn.k@gmail.com</p>
-                                        <span class="badge badge-pill badge-info">GB</span>
-                                        <br><br>
-                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Naphatthorn K." >Delete</button>
-                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="naphatthorn.k@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col" style="display: flex; justify-content: center;">
-                        <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-4">
-                                    <img src="pic/Profile/user.png" class="card-img" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Abed B.</h5>
-                                        <p class="card-text">abed.bin@gmail.com</p>
-                                        <span class="badge badge-pill badge-info">Stripper</span>
-                                        <br><br>
-                                        <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="Abed B." >Delete</button>
-                                        <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="abed.bin@gmail.com"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+                  
+            <div id='teamMemberList' class="row"></div>
 
         </main>
 
@@ -156,7 +80,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Member</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -164,18 +88,18 @@
                 <div class="modal-body">
                     <form>
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Member Email:</label>
+                        <label for="recipient-name" class="col-form-label">Name:</label>
                         <input type="text" class="form-control user" id="recipient-name" disabled>
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">New role:</label>
-                        <input type="text" class="form-control" id="newRole">
+                        <input type="text" class="form-control" id="roleType">
                     </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal" >Apply</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" id='editMemberBtn'>Apply</button>
                 </div>
                 </div>
             </div>
@@ -186,18 +110,43 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">Delete Member</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete: </p> 
-                    <span id="user">&user</span>
+                    <span id="deleteUser" style='padding: 2vw;'></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id='deleteMemberBtn'>Delete</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal: addMemberModal-->
+        <div class="modal fade" id="addMemberModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Member</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="searchUser"placeholder="Enter email..">
+                    <button type="button" class="btn btn-primary w-100" id="searchUserBtn">Search</button>
+                    <div class="card">
+                        <div class="card-body" id='searchResult'></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" id="addMemberBtn">Add</button>
                 </div>
                 </div>
             </div>
@@ -208,39 +157,263 @@
     <!--Action Zone-->
     <div class="actionZone-left">
         <div class="buttonHolder" style="float: left;">
-            <button onclick="document.location='report.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
+            <button onclick="document.location='/report'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <script>
-    
-    $('#editModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        console.log(recipient)
-        modal.find('.recipient-name').text(recipient)
-        modal.find('.modal-body .user').val(recipient)
-    })
-
-    $('#deleteModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        console.log(recipient)
-        modal.find('.recipient-name').text(recipient)
-        modal.find('.modal-body .user').text(recipient)
-    })
-
-    </script>
-
+    <div class="actionZone-right">
+        <button type="button" id="modalCaller"  class="btn btn-success rounded-pill" data-toggle="modal" data-target="#addMemberModal" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;"> + Add Member</button>
+    </div>
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+        authDomain: "swap-inc-to-da352.firebaseapp.com",
+        databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+        projectId: "swap-inc-to-da352",
+        storageBucket: "swap-inc-to-da352.appspot.com",
+        messagingSenderId: "909262246523",
+        appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+        measurementId: "G-PC959CD68Y"
+        };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+<script>
+    $(document).ready(() => {
+        console.log('TEAM MANAGEMENT PAGE')
+        const database = firebase.database()
+
+        database.ref(`users/${sessionStorage.getItem('userId')}`).once('value', (snapshot) => {
+            const data = snapshot.val()
+            console.log(data)
+            $('#profileName').html(data.name)
+        })
+
+        //Check session of userId   
+        if(!sessionStorage.getItem('userId'))
+            window.location.href = '/login'
+
+        //Check session of projectId
+        if(!sessionStorage.getItem('projectId'))
+            window.location.href = '/projects' 
+
+        showTeamMemberList()
+        
+        $('#editMemberBtn').on('click', function(){
+            const userId = $(this).val()
+            const roleType = $('#roleType').val()
+            const projectId = sessionStorage.getItem('projectId')
+            console.log(userId + ' ' + roleType)
+            database.ref(`users/${userId}/projectList/${projectId}`).set({roleType: roleType})
+            console.log("Edit member successfully.")
+            showTeamMemberList()
+        })
+
+        $('#editModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            console.log(recipient)
+            database.ref(`users/${recipient}/`).once('value', (snapshot) => {
+                const userInfo = snapshot.val()
+                // console.log(userInfo.name)
+                modal.find('.recipient-name').text(userInfo.name)
+                modal.find('.modal-body .user').val(userInfo.name)
+                $('#editMemberBtn').attr('value',`${recipient}`)
+            })
+        })
+
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            console.log(recipient)
+            database.ref(`users/${recipient}/`).once('value', (snapshot) => {
+                const userInfo = snapshot.val()
+                console.log(userInfo.name)
+                modal.find('.recipient-name').text(userInfo.name)
+                modal.find('.modal-body .user').val(userInfo.name)
+                $('#deleteUser').html(``)
+                $('#deleteUser').append(`${userInfo.name}`)
+                $("#deleteMemberBtn").attr('value',`${recipient}`);
+            })
+        })
+
+        //Searching the users
+        $('#searchUserBtn').click(() => {
+            const searchUserId = md5($('#searchUser').val())
+            const userId = sessionStorage.getItem('userId')
+            const projectId = sessionStorage.getItem('projectId')
+            $('#searchResult').html('')
+            console.log(searchUserId)
+            database.ref(`users/${searchUserId}`).once('value', (snapshot) => {
+                const user = snapshot.val()
+                if(user){
+                    database.ref(`users/${userId}/projectList/${projectId}`).once('value', (snapshot) => {
+                        const roleType = snapshot.val().roleType
+                        console.log(userId + ' $ ' + roleType)
+                        if (roleType == 'Manager'){
+                            database.ref(`users/${searchUserId}/projectList/${projectId}`).once('value', (snapshot) => {
+                                if(!snapshot.val()){
+                                    $('#searchResult').append(` <h4>${user.name}</h4> \
+                                                                <h6>${user.email}</h6> \
+                                                                <label for="message-text" class="col-form-label">Role:</label>
+                                                                <input type="text" class="form-control" id="roleTypeAdd">   
+                                                            `)
+                                    $("#addMemberBtn").attr('value',`${user.email}`);
+                                    }
+                                else{
+                                    $('#searchResult').append(` <h4>The user was in the team already.</h4> `)
+                                    }
+                                })
+                            }
+                        else{
+                            database.ref(`users/${searchUserId}/projectList/${projectId}`).once('value', (snapshot) => {
+                                if(!snapshot.val()){
+                                    $('#searchResult').append(` <h5>Not found this user in the team</h5>`)
+                                    }
+                                else{
+                                    $('#searchResult').append(` <h4>The user was in the team already.</h4> `)
+                                    }
+                                })
+                            }
+                        })
+                    }
+                else {
+                    $('#searchResult').append(`<h5>The user is not found.</h5>`)
+                }
+            })
+        })
+
+        //Click to add member
+        $('#addMemberBtn').on('click', function(){
+            const userId = md5($(this).attr('value'))
+            const roleType = $('#roleTypeAdd').val();
+            const projectId = sessionStorage.getItem('projectId')
+            console.log(userId + ' ' + roleType)
+            if(database.ref(`users/${userId}/projectList/${projectId}`).set({roleType: roleType})){
+                console.log("Add member successfully.")
+                window.location.href = '/project/team-management'
+                }
+            })
+
+        $('#deleteMemberBtn').on('click', function(){
+            const userId = $(this).attr('value')
+            const projectId = sessionStorage.getItem('projectId')
+            database.ref(`users/${userId}/projectList/${projectId}`).remove()
+            console.log('Delete member successfully.')
+            window.location.href = '/project/team-management'
+        })
+
+        function showTeamMemberList(){
+            const projectId = sessionStorage.getItem('projectId')
+            const user = sessionStorage.getItem('userId')
+            console.log('Program showTeamMemberList')
+            $('#teamMemberList').html('')
+            database.ref(`users/`).once('value', (snapshot) => {
+                const allUsers = snapshot.val()
+                console.log(allUsers)
+                $.each(allUsers, (index, value) => {
+                    const name = value.name
+                    const email = value.email
+                    const projectList = value.projectList
+                    if(projectList){
+                        $.each(projectList, (index, value) => {
+                            if(projectId == index){
+                                const userId = md5(email)
+                                database.ref(`users/${user}/projectList/${projectId}`).once('value', (snapshot) =>{
+                                    console.log(snapshot.val())
+                                    if(snapshot.val().roleType == 'Manager'){
+                                        if(value.roleType == 'Manager'){
+                                            $('#teamMemberList').append(`   <div class="col" style="display: flex; justify-content: center;">
+                                                                                <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                                                                                    <div class="row no-gutters">
+                                                                                        <div class="col-md-4">
+                                                                                            <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                            <div class="card-body">
+                                                                                                <h5 class="card-title">${name}</h5>
+                                                                                                <p class="card-text">${email}</p>
+                                                                                                <span class="badge badge-pill badge-info">${value.roleType}</span>
+                                                                                                <br><br>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        `)
+                                            }
+                                        else{
+                                            $('#teamMemberList').append(`   <div class="col" style="display: flex; justify-content: center;">
+                                                                                <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                                                                                    <div class="row no-gutters">
+                                                                                        <div class="col-md-4">
+                                                                                            <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                            <div class="card-body">
+                                                                                                <h5 class="card-title">${name}</h5>
+                                                                                                <p class="card-text">${email}</p>
+                                                                                                <span class="badge badge-pill badge-info">${value.roleType}</span>
+                                                                                                <br><br>
+                                                                                                <button type="button" id="modalCaller"  class="btn btn-danger float-right" data-toggle="modal" data-target="#deleteModal" data-whatever="${userId}" >Delete</button>
+                                                                                                <button type="button" id="modalCaller"  class="btn btn-warning float-right" data-toggle="modal" data-target="#editModal" data-whatever="${userId}"> &nbsp;&nbsp; Edit &nbsp;&nbsp;</button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        `) 
+                                            }
+                                        }
+
+                                    else{
+                                        $('#teamMemberList').append(`   <div class="col" style="display: flex; justify-content: center;">
+                                                                            <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
+                                                                                <div class="row no-gutters">
+                                                                                    <div class="col-md-4">
+                                                                                        <img src="pic/Profile/user.png" class="card-img" alt="...">
+                                                                                    </div>
+                                                                                    <div class="col-md-8">
+                                                                                        <div class="card-body">
+                                                                                            <h5 class="card-title">${name}</h5>
+                                                                                            <p class="card-text">${email}</p>
+                                                                                            <span class="badge badge-pill badge-info">${value.roleType}</span>
+                                                                                            <br><br>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    `)
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                })
+            }
+    })
+
+</script>
 </html>

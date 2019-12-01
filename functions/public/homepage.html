@@ -10,19 +10,22 @@
     <link rel="stylesheet" type="text/css" href="css/page.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
 <body class="bodyHome">
         <!-- NAVBAR: Image and text -->
     <nav class="navbar navbar-light shadow p-3" style="background-color:white;">
-        <a class="navbar-brand" href="homepage.html">
+        <a class="navbar-brand" href="/homepage">
             <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Team Organization
         </a>
 
-
-        
         <div class="dropdown show float-right">
             <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
@@ -30,8 +33,8 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <a class="dropdown-item" href="Login.html" id = "logoutBtn">Logout</a>
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/login" id = "logoutBtn">Logout</a>
             </div>
         </div>
 
@@ -39,74 +42,20 @@
     <!-- Content -->
     <div class="contentHome">
         <h1 style="margin: 5vh;">Project list</h1>
-            
-            <div class="cardList">
-                <div onclick="document.location='projectDashboard.html'"   class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="pic/SVG/logo.svg" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 1</h5>
-                                <p class="card-text">Good luck with your exam ja</p>
-                                <span class="badge badge-pill badge-danger">1 new updates</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="pic/SVG/logo.svg" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 2</h5>
-                                <p class="card-text">Good luck with your exam ja</p>
-                                <span class="badge badge-pill badge-danger">3 new updates</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card mb-3 cardProjectStyle" style="max-width: 540px; margin-right: 1vw; border-radius: 20px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="pic/SVG/logo.svg" class="card-img" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 3</h5>
-                                <p class="card-text">Good luck with your exam ja</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
+        <div class="cardList" id='cardList'></div>
     </div>
     <!--Action Zone-->
     <div class="actionZone-left">
         <div class="buttonHolder" style="float: left;">
-            <button onclick="document.location='report.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
+            <button onclick="document.location='/report'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey; background-color: #001E3F;"> report</button>
         </div>
     </div>
 
     <div class="actionZone-right">
         <div class="buttonHolder">
-            <button onclick="document.location='addProject.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;"> + Add Project</button>
+            <button onclick="document.location='/project/add'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;"> + Add Project</button>
         </div>
     </div>
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 </body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -117,8 +66,6 @@
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
-
-
 
 <script>
   // Your web app's Firebase configuration
@@ -140,29 +87,78 @@
 <script type='text/javascript'>
 
     $(document).ready(() => {
-    console.log('HELLO BROWSER')
-    const database = firebase.database()
+        console.log('HOMEPAGE')
+        const database = firebase.database()
 
+        //Check session
+        if(!sessionStorage.getItem('userId'))
+            window.location.href = '/login'
+        
+        sessionStorage.removeItem('projectId')
 
+        showProjects()
 
-
+        //To display the name of user
         database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
             const data = snapshot.val()
             console.log(data)
             $('#profileName').html(data.name)
-
         })
-
-        $('#logoutBtn').click(() => {
-            
+        
+        //Logout
+        $('#logoutBtn').click(() => {         
             sessionStorage.clear();
-            window.location.href = '/Login.html'
+            window.location.href = '/login'
+            })
 
-             })
+        //Click to access the project
+        $(document).on('click','#accessProject', function(){
+            const projectId = $(this).attr('value')
+            database.ref(`projects/${projectId}`).once('value', (snapshot) => {
+                sessionStorage.setItem('projectId', projectId)
+                console.log(sessionStorage.getItem('projectId'))
+                window.location.href='/project/access'
+                console.log('CLICK TO ACCESS PROJECT: ' + projectName)
+            }) 
+        })
+        function showProjects(){
+            const userId = sessionStorage.getItem('userId')
+            let i = 0;
+            database.ref(`users/${userId}/projectList`).on('value', (snapshot) => {
+                const allProjects = snapshot.val()
+                console.log('projects/changed: ', allProjects)
+                if (allProjects) {
+                    $('#cardList').html(''); // clear the HTML
+                    Object.keys(allProjects).forEach((project) => {
+                        database.ref(`/projects/${project}`).on('value', (snapshot) => {
+                            const projectInfo = snapshot.val()
+                            if (projectInfo) {
+                                if(i==2) {
+                                    // $('#cardList').append(``)
+                                    i = 0
+                                }
+                                $('#cardList').append(` <div id='accessProject' value = ${project} class="card mb-3 cardProjectStyle" style="max-width: 50vh; margin-right: 1vw; border-radius: 20px;">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-md-4">
+                                                                    <img src="pic/SVG/logo.svg" class="card-img" alt="...">
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">${projectInfo.projectName}</h5>
+                                                                        <p class="card-text">${projectInfo.projectDescription}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>`)
+                                i++;
+                                console.log(project)
+                                }
+                            })
+                        })
+                    }
+                })
+            }
     })
-    
-    $(document).ajaxError(() => {
-        $('#status').html('Error, unknown ajaxErorr!')
-    })
+
 </script>
 </html>

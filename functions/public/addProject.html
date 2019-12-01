@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{TO} Add Project</title>
-
-
     <link rel="stylesheet" type="text/css" href="css/button-style.css">
     <link rel="stylesheet" type="text/css" href="css/content-style.css">
     <link rel="stylesheet" type="text/css" href="css/page.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
 </head>
 <body class="bodyHome">
             <!-- NAVBAR: Image and text -->
     <nav class="navbar navbar-light shadow p-3" style="background-color:white;">
-        <a class="navbar-brand" href="homepage.html">
+        <a class="navbar-brand" href="/homepage">
             <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Team Organization
         </a>
@@ -29,8 +36,8 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <a class="dropdown-item" href="Login.html">Logout</a>
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
             </div>
         </div>
 
@@ -48,96 +55,105 @@
                 
                 <div class="inputField">
                     <div class="indicatorText">
-                        <span>  <h5>Project's Name *</h5> 
-                        </span>
+                        <span><h5>Project's Name *</h5></span>
                     </div>
                     <div class="inputBox">
-                        <input type="text" class="textInput">
+                        <input type="text" class="textInput" style="width: 35vw;" id='projectName'>
                     </div>
                 </div>
 
                 <div class="inputField">
                     <div class="indicatorText">
-                        <span>Project Description    <label class='...'>*</label>
+                        <span>Project Description<label class='...'>*</label>
                         </span>
                     </div>
                     <div class="inputBox ">
-                        <textarea name="project-description" cols="50" rows="10" class="textInput large-input"></textarea>
+                        <textarea name="project-description" cols="50" rows="10" class="textInput large-input" id='projectDescription'></textarea>
                     </div>
                 </div>
 
                 <div class="date"> 
-                    <div class="inputField" style="margin-right: 10px; width:15vw;">
-                        <label for="dateStart">Start Date</label>
-                        <input type="date" name="dateStart" id="dateStart">
-                    </div>
-                    <div class="inputField">
-                        <label for="dateEnd">End Date</label>
-                        <input type="date" name="dateEnd" id="dateEnd">
+                    <div class="inputField" style="margin-right: 10px; width:30vw;">
+                        <label for="dateStart">Project Date</label>
+                        <input type="text" class="form-control" id="projectDate" placeholder="dd/mm/yyyy" style="width: 35vw;">
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-3" style="padding-left: 20px;">
-               <h4>TEAM MEMBER</h4>
-               <form >
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">1</span>
-                      </div>
-                        <input type="text" class="form-control" placeholder="User ID">
-                        <input type="text" class="form-control" placeholder="Role">
-                        <button class="btn btn-danger" type="button">X</button>
-                    </div>
-                </form>
-                <form>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">2</span>
-                      </div>
-                        <input type="text" class="form-control" placeholder="User ID">
-                        <input type="text" class="form-control" placeholder="Role">
-                        <button class="btn btn-danger" type="button">X</button>
-                    </div>
-                </form>
-                <form>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">3</span>
-                      </div>
-                        <input type="text" class="form-control" placeholder="User ID">
-                        <input type="text" class="form-control" placeholder="Role">
-                        <button class="btn btn-danger" type="button">X</button>
-                    </div>
-                </form>
-
-                <form>
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">4</span>
-                          </div>
-                            <input type="text" class="form-control" placeholder="User ID">
-                            <input type="text" class="form-control" placeholder="Role">
-                            <button class="btn btn-danger" type="button">X</button>
-                        </div>
-                    </form>
-
-            </div>
-            
+        </div>
+        <div class="buttonHolder">
+            <button id='createProject' type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;">Apply</button>
         </div>
     </div>
-
-    <div class="actionZone-right">
-        <div class="buttonHolder">
-            <button onclick="document.location='homepage.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;">Apply</button>
-        </div>
-    </div>    
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-
-
+    
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+        authDomain: "swap-inc-to-da352.firebaseapp.com",
+        databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+        projectId: "swap-inc-to-da352",
+        storageBucket: "swap-inc-to-da352.appspot.com",
+        messagingSenderId: "909262246523",
+        appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+        measurementId: "G-PC959CD68Y"
+        };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(() => {
+        console.log('ADD PROJECT PAGE')
+        const database = firebase.database()
+        $("#projectDate").datepicker({
+                                        dateFormat: "dd-mm-yy",
+                                        defaultDate: 0
+                                    });
+        
+        //Check session
+        if(!sessionStorage.getItem('userId'))
+            window.location.href = '/login'
+
+        //Create Project
+        $('#createProject').click(() => {
+            const userId = sessionStorage.getItem('userId')
+            const projectName = $('#projectName').val()
+            const projectDate = $('#projectDate').val()
+            const projectDescription = $('#projectDescription').val()
+            const projectId = generateProjectId();
+            console.log(projectId + ' ' + projectName + ' ' + projectDescription + ' ' + projectDate)
+            database.ref('projects/' + projectId).set({ projectName: projectName,
+                                                        projectDate: projectDate,
+                                                        projectDescription: projectDescription})
+            database.ref(`users/${userId}/projectList/${projectId}`).set({
+                                                                            roleType: 'Manager'
+                                                                        })
+            console.log("Create a project successfully")
+            window.location.href = '/homepage'
+        })
+
+        //Click to logout
+        $('#logoutBtn').click(() => {
+            sessionStorage.clear()
+            window.location.href='/login'
+        })
+
+        var generateProjectId = function () {
+            return '_' + Math.random().toString(36).substr(2, 9);
+            };
+    })
+
+</script>
 </html>

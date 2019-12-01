@@ -3,59 +3,81 @@ const path = require('path')
 const app = express()
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
-
 const mail = require('./mail')
 const Encrypt = require('./cipher-iv')
 const encrypt = new Encrypt()
-
-// const session = require('express-session')
 const cookieParser = require('cookie-parser')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8000
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(bodyParser())
+
 app.use(cookieParser())
+app.use(express.static(path.join(__dirname, '/public')))
+app.use('/project', express.static(path.join(__dirname, '/public')))
 
-app.get('/test', (req, res) => {
-    res.sendFile(path.join(__dirname,'../test.html'))
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/Login.html'))
 });
 
-app.get('/signup', (req, res) => {
-    res.sendFile(path.join(__dirname,'../signup.html'))
+app.get('/homepage', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/homepage.html'))
 });
 
-app.get('/personalinfopage', (req, res) => {
-    res.sendFile(path.join(__dirname,'../personalinfopage.html'))
+app.get('/project/add', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/addProject.html'))
 });
 
-app.get('/editinfo', (req, res) => {
-    res.sendFile(path.join(__dirname,'../editinfo.html'))
+app.get('/project/access', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/projectDashboard.html'))
 });
 
-
-app.get('/signin', (req, res) => {
-    res.sendFile(path.join(__dirname,'../signin.html'))
+app.get('/project/team-management', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/projectTeam.html'))
 });
 
-app.get('/transit', (req, res) => {
-    res.sendFile(path.join(__dirname,'../transit.html'))
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/profile.html'))
 });
 
-const HOST = 'http://localhost:3000'
+app.get('/report', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/report.html'))
+});
+
+app.get('/forgot-password', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/forgotPassword.html'))
+});
+
+app.get('/reset-password', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/resetPassword.html'))
+});
+
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/Register.html'))
+});
+
+app.get('/register-done', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/RegisterDone.html'))
+});
+
+app.get('/gocheckyouremail', (req, res) => {
+    res.sendFile(path.join(__dirname,'public/gocheckyouremail.html'))
+});
+
+const HOST = 'http://localhost:8000'
 app.post('/forgotPassword', (req, res) => {
-    //console.log(req.body)
-    const { email } = req.body
-    //console.log(email)
+    // console.log(req.body)
+    const email = req.body
+    console.log(email)
     //emailMd5 = email
-    let emailMd5 = crypto.createHash('md5').update(email).digest("hex")
+    // let emailMd5 = crypto.createHash('md5').update(email).digest("hex")
+
     //console.log("This in fotgotpassword email")
     // console.log(sess)
     // console.log(email)
     const key = encrypt.encrypt({
         email
     })
-    //console.log("key is", key)
+    console.log("key is", key)
     const link = HOST + '/resetPassword?key=' + key
     const header = {
         to: email,
@@ -64,7 +86,7 @@ app.post('/forgotPassword', (req, res) => {
         subject: 'Reset Password on Team Organizing'
     }
     mail(header)
-    res.redirect('/gocheckyouremail.html')
+    res.redirect('/gocheckyouremail')
 })
 
 
@@ -74,6 +96,7 @@ app.get('/resetPassword', (req, res) => {
         // console.log("If email print it is global now")
         // console.log(sess)
         const key = req.query.key
+        console.log(key)
        // console.log(key)
         const decrypt = encrypt.decrypt(key)
         //console.log(decrypt)
@@ -82,15 +105,11 @@ app.get('/resetPassword', (req, res) => {
         res.cookie('email', decrypt.email)
        // res.send(JSON.stringify(sess))
         //res.render(__dirname + "/resetPassword.html", {sess:sess});
-        res.redirect('/resetPassword.html')
+        res.redirect('/reset-password')
         //res.send({sess : , redirect_path: '/resetPassword.html'});
     } catch (err) {
         res.send('Key not valid, Please try again')
     }
-})
-
-app.get('/userReport', (req, res) => {
-    res.redirect('userReport.html')
 })
 
 app.listen(port, () => {

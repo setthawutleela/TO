@@ -10,12 +10,18 @@
     <link rel="stylesheet" type="text/css" href="css/page.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
 
 <body class="bodyHome">
     <nav class="navbar navbar-light shadow p-3" style="background-color:white;">
-        <a class="navbar-brand" href="homepage.html">
+        <a class="navbar-brand" href="/homepage">
             <img src="pic/SVG/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Team Organization
         </a>
@@ -23,12 +29,12 @@
       <div class="dropdown show float-right">
             <a class="btn btn-info dropdown-toggle" style="background-color: #1fc0c3; border-style: hidden;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="pic/SVG/user.svg" width="40" height="40" class="rounded-circle">
-                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;">Setthawut L.</span>
+                <span style=" margin-left: 0.5vw; padding-right: 0.5vw;" id='profileName'></span>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <a class="dropdown-item" href="Login.html">Logout</a>
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/login">Logout</a>
             </div>
         </div>
     </nav>
@@ -45,7 +51,7 @@
             </span>
         </div>
         <div class="inputBox">
-            <input type="text" class="textInput">
+            <input id='topic' type="text" class="textInput" style="width: 35vw;">
         </div>
         </div>
 
@@ -55,20 +61,76 @@
                 </span>
             </div>
             <div class="inputBox ">
-                <textarea name="project-description" cols="50" rows="10" class="textInput large-input"></textarea>
+                <textarea id='description' name="project-description" cols="50" rows="10" class="textInput large-input"></textarea>
             </div>
+        </div>
+
+        <div class="buttonHolder">
+            <button id='insertBtn' type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;">&nbsp; Send  &nbsp;</button>
         </div>
     </div>
 
-    <div class="actionZone-right">
-        <div class="buttonHolder">
-            <button onclick="document.location='homepage.html'" type="button" class="btn btn-success rounded-pill" style="border-style: hidden; box-shadow: 0 3px 6px lightgrey;">&nbsp; Send  &nbsp;</button>
-        </div>
-    </div>  
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+<!--<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/mode-cfb-min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyChcEoKMCQF58Nk-Db58g9Obaw8ngD-pOs",
+        authDomain: "swap-inc-to-da352.firebaseapp.com",
+        databaseURL: "https://swap-inc-to-da352.firebaseio.com",
+        projectId: "swap-inc-to-da352",
+        storageBucket: "swap-inc-to-da352.appspot.com",
+        messagingSenderId: "909262246523",
+        appId: "1:909262246523:web:a0fb1f66c5970ac3fbc8de",
+        measurementId: "G-PC959CD68Y"
+        };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+<script type='text/javascript'>
+
+    $(document).ready(() => {
+        console.log('REPORT PAGE')
+        const database = firebase.database()
+        //Check session
+        if(!sessionStorage.getItem('userId'))
+            window.location.href = '/login'
+            
+        //To display the name of user
+        database.ref('users/' + sessionStorage.getItem('userId')).once('value', (snapshot) => {
+            const data = snapshot.val()
+            console.log(data)
+            $('#profileName').html(data.name)
+        })
+        //Insert report    
+        $('#insertBtn').click(() => {
+            const id = Date.now() + Math.random()
+            var int = parseInt(id, 10);
+            const topic = $('#topic').val()
+            const description = $('#description').val()
+            const userId = sessionStorage.getItem('userId')
+            console.log(topic + ' ' + description + ' ' + userId)
+            database.ref(`report/${int}`).set({
+                                                topic: topic,
+                                                description: description,
+                                                userId: userId
+                                                })
+        })
+    })
+</script>
 </html>

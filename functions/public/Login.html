@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/button-style.css">
     <link rel="stylesheet" type="text/css" href="../css/content-style.css">
     <link rel="stylesheet" type="text/css" href="../css/page.css">
-    <script src = "md5.min.js"></script>
+    <!-- <script src = "md5.min.js"></script> -->
 
 </head>
 <body class="bodyLogin">
@@ -25,11 +25,11 @@
         <div class="Container">
             
             <div class="input-group mb-3">
-                <input type="email" class="form-control rounded-pill" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" id='emailInput' required>
+                <input type="email" class="form-control rounded-pill" placeholder="Email.." aria-label="Email" aria-describedby="basic-addon1" id='emailInput' required>
              </div>
 
              <div class="input-group mb-3">
-                <input type="password" class="form-control rounded-pill" placeholder="password" aria-label="password" aria-describedby="basic-addon2" id='passwordInput' required>
+                <input type="password" class="form-control rounded-pill" placeholder="Password.." aria-label="password" aria-describedby="basic-addon2" id='passwordInput' required>
              </div>
             
             
@@ -37,7 +37,7 @@
             
             
             <div style="margin-top: 5px;">
-                <a href="forgotPassword.html">forgot password?</a>
+                <a href="/forgot-password">forgot password?</a>
             </div>
 
             <div style="margin: 10px;">
@@ -45,11 +45,12 @@
             </div>
             
             <div>
-                <a href="Register.html">Register</a>
+                <a href="/register">Register</a>
             </div>
         </div>
     </div>
 </body>
+
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 
@@ -58,8 +59,6 @@
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
-
-
 
 <script>
   // Your web app's Firebase configuration
@@ -83,77 +82,63 @@
         $(document).ready(() => {
         console.log('HELLO BROWSER')
         const database = firebase.database()
-
+        sessionStorage.clear()
 
         $('#loginBtn').click(() => {
             const email = $('#emailInput').val().toLowerCase()
-            const password = $('#passwordInput').val()
+            const password = md5($('#passwordInput').val())
             var userId = md5(email)
             var indexat = email.indexOf("@"); //Index of "@" in the email field
             var indexdot = email.indexOf("."); //Index of "." in the email field
 
-            if(email == '')
-            {
-            alert('Empty field detected! Please fill out all the fields.');
-            $('#emailInput').focus(); 
-            }
-
-                    else if(indexat <= 1 || (indexdot-indexat) <= 2)
-            {
-            alert('Please enter a valid email address!');
-            $('#emailInput').focus();
-            }
-
-            else if(password == '')
-            {
-            alert('Empty field detected! Please enter your password!');
-            $('#passwordInput').focus(); //The focus function will move the cursor to "fullname" field
-            }
-            else
-            {
-
-
-            database.ref('users/' + userId).once('value', (snapshot) => {
-                const data = snapshot.val()
-                console.log(data)
-
-                if(data == null)
-                {
-                    alert('This email is not registered! Try again with a registered email.');
-                     $('#emailInput').focus();
+            if(email == ''){
+                alert('Empty field detected! Please fill out all the fields.');
+                $('#emailInput').focus(); 
                 }
 
-                else if(data.password == password){
-                    sessionStorage.setItem('userId', userId)
-                    window.location.href = '/homepage.html'
-                }
-                else{
-                    console.log('ERROR')
-                    alert('Incorrect password!');
-                     $('#passwordInput').focus();
+            else if(indexat <= 1){
+                alert('Please enter a valid email address!');
+                $('#emailInput').focus();
                 }
 
-            })
+            else if(password == ''){
+                alert('Empty field detected! Please enter your password!');
+                $('#passwordInput').focus(); //The focus function will move the cursor to "fullname" field
+                }
+            
+            else{
+                database.ref('users/' + userId).once('value', (snapshot) => {
+                    const data = snapshot.val()
+                    console.log(data)
 
-        }
+                    if(data == null)
+                    {
+                        alert('This email is not registered! Try again with a registered email.');
+                            $('#emailInput').focus();
+                    }
+
+                    else if(data.password == password){
+                        sessionStorage.setItem('userId', userId)
+                        window.location.href = '/homepage'
+                    }
+                    else{
+                        console.log('ERROR')
+                        alert('Incorrect password!');
+                            $('#passwordInput').focus();
+                    }
+                })
+
+            }
 
         })
-
 
         $('#signupBtn').click(() => {
-            
             window.location.href = '/Register.html'
-
         })
-
     })
 
-
-
-
-    
     $(document).ajaxError(() => {
-        $('#status').html('Error, unknown ajaxErorr!')
+        $('#status').html('Error, unknown ajaxError!')
     })
 </script>
 </html>

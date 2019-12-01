@@ -118,20 +118,3 @@
     font-weight: bold;
     font-size: 48px;
 }
-
-<<<<<<< HEAD
-=======
-.gantt{
-    font-family: 'Poppins', sans-serif;
-    width: 60vw;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 55px;
-    background-color: white;
-    box-shadow: 0 2px 3px lightgrey;
-    padding: 5vh 5vw 5vh 5vw;
-    margin-top: 2vh;
-}
->>>>>>> 5506476cecda84521f2a30040e15e02b46b724fb
