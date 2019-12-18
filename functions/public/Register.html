@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/button-style.css">
     <link rel="stylesheet" type="text/css" href="../css/content-style.css">
     <link rel="stylesheet" type="text/css" href="../css/page.css">
-    <script src = "md5.min.js"></script>
+    <script src = "js/md5.min.js"></script>
 
 </head>
 <body class="bodyLogin">
@@ -153,11 +153,11 @@
             database.ref('users/' + userId).set({
                 email: email,
                 name: name,
-                password: repassword,
+                password: md5(repassword),
             })
 
 
-            window.location.href = 'functions/public/RegisterDone.html'
+            window.location.href = 'RegisterDone.html'
     }
 
         })
